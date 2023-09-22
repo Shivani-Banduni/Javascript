@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <title>Order Food</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.foodItems {
+    margin: 20px auto;
+    max-width: 200px;
+}
+
+.result {
+    display: none;
+    margin-top: 20px;
+}
+
+#foodImage {
+    max-width: 100%;
+}
+
+#orderId {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5722;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+</style>
+<body style="border: 2px solid black;">
+    <button id="orderButton">Order Food</button>
+    <div class="foodItems">
+        <label><input id="food1" type="checkbox" value="Burger">Burger</label>
+        <label><input id="food2" type="checkbox" value="Pizza">Pizza</label>
+        <label><input id="food3" type="checkbox" value="Sushi">Sushi</label>
+        
+            <img id="foodImage" style="display: none;" alt="Food" >
+            <span id="orderId" ></span>
+        
+        <!-- Add more food items as needed -->
+    </div>
+    
+</body>
+</html>
+<script>
+    // document.addEventListener('DOMContentLoaded', function () {
+    const orderButton = document.getElementById('orderButton');
+    const foodImage = document.getElementById('foodImage');
+    const orderId = document.getElementById('orderId');
+    const foodItems = document.querySelectorAll('.foodItems input[type="checkbox"]');
+    
+     const food1=document.getElementById("food1")
+     const food2=document.getElementById("food2")
+     const food3=document.getElementById("food3")
+
+
+  
+
+orderButton.addEventListener('click', () => {
+//  console.log(food1.checked)
+        // Get selected food items
+        if(food1.checked==true){
+            console.log('selected')
+            orderId.textContent= "order processing";
+            foodImage.src= "https://t3.ftcdn.net/jpg/05/04/32/14/360_F_504321495_IiTcsvegMQdk9FoEyOZXC49hLHi2QgPt.jpg"
+            foodImage.style.display= "block"
+    
+            setTimeout(()=>{
+                foodImage.src='https://www.shutterstock.com/shutterstock/photos/2282033179/display_1500/stock-photo-classic-hamburger-stock-photo-isolated-in-white-2282033179.jpg'
+            // foodImage.style.display= "block"
+            orderId.textContent='Your Order Number Is  '  +  Math.ceil(Math.random()*1000)
+            },2000)
+           
+        }
+        else if(food2.checked==true){
+            orderId.textContent= "order processing";
+            foodImage.src= "https://t3.ftcdn.net/jpg/05/04/32/14/360_F_504321495_IiTcsvegMQdk9FoEyOZXC49hLHi2QgPt.jpg"
+            foodImage.style.display= "block"
+
+
+            setTimeout(()=>{
+                foodImage.src='https://img.onmanorama.com/content/dam/mm/en/food/features/images/2021/10/17/pizza.jpg.transform/schema-4x3/image.jpg'
+            // foodImage.style.display= "block"
+            orderId.textContent= 'Your Order Number Is  '  + Math.ceil(Math.random()*1000)
+            },2000)
+        }
+        else if(food3.checked==true){
+            orderId.textContent= "order processing";
+            foodImage.src= "https://t3.ftcdn.net/jpg/05/04/32/14/360_F_504321495_IiTcsvegMQdk9FoEyOZXC49hLHi2QgPt.jpg"
+            foodImage.style.display= "block"
+
+
+            setTimeout(()=>{
+                foodImage.src='https://media.istockphoto.com/id/1354366250/photo/set-of-rainbow-uramaki-sushi-rolls-with-avocado.webp?b=1&s=170667a&w=0&k=20&c=GcEXkREwgoHwu4daRUZRrnyaCTKZE7mvd2JAKhtPnjI='
+            // foodImage.style.display= "block"
+            orderId.textContent= 'Your Order Number Is  '  +   Math.ceil(Math.random()*1000)
+            },2000)
+        }
+    else{
+        alert('Please select at least one food item.')
+    }
+       
+      
+
+       
+    });
+//  })
+
+</script>
+
+
+
+

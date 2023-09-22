@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment System</title>
+    <style>
+        /* Add your CSS styles for the UI here */
+        .container {
+            text-align: center;
+        }
+        .processing {
+            font-size: 24px;
+            color: orange;
+        }
+        .success {
+            font-size: 24px;
+            color: green;
+        }
+        .failure {
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment System</h1>
+        <input type="number" value="" id="inp"/>
+        <button id="startPayment">Start Payment</button>
+        <div id="paymentStatus"></div>
+        <img alt="" id="img" style="border: 2px solid black; height: 300px; width: 200px; "/>
+    </div>
+
+    <script>
+        let input=document.getElementById('inp')
+        function simulatePayment() {
+            return new Promise((resolve, reject) => {
+                // Simulate payment processing (replace with your logic)
+                setTimeout(() => {
+                    // const isSuccess = Math.random() < 0.5;
+                    const isSuccess=input.value<2000
+                    
+                    if (isSuccess) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                }, 2000); // Simulate 2 seconds of processing
+            });
+        }
+
+        document.getElementById("startPayment").addEventListener("click", () => {
+            console.log(input.value)
+            const img=document.getElementById("img")
+            const paymentStatusElement = document.getElementById("paymentStatus");
+
+
+            paymentStatusElement.textContent = "Processing...";
+            paymentStatusElement.className = "processing";
+
+            simulatePayment()
+                .then(() => {
+                    paymentStatusElement.textContent = "Payment Successful";
+                    img.src="https://www.shutterstock.com/shutterstock/photos/2312496645/display_1500/stock-vector-green-checkmark-tick-icon-correct-tick-symbol-and-approved-symbol-vector-illustration-2312496645.jpg";
+                    paymentStatusElement.className = "success";
+                    
+                })
+                .catch(() => {
+                    paymentStatusElement.textContent = "Payment Failed";
+                    paymentStatusElement.className = "failure";
+                });
+        });
+    </script>
+</body>
+</html>
