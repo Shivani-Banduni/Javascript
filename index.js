@@ -149,31 +149,31 @@
 
 // Async Function
 
-const wadaa=new Promise((resolve,reject)=>{
-  setInterval(()=>{
-    resolve('success ho gya')
-  },1000)
-})
-const wada=new Promise((resolve,reject)=>{
-  console.log('first')
-  setInterval(()=>{
-    resolve('success')
-  },5000)
-})
+// const wadaa=new Promise((resolve,reject)=>{
+//   setInterval(()=>{
+//     resolve('success ho gya')
+//   },1000)
+// })
+// const wada=new Promise((resolve,reject)=>{
+//   console.log('first')
+//   setInterval(()=>{
+//     resolve('success')
+//   },5000)
+// })
 
 
-async function main(){
-  console.log('second request')
+// async function main(){
+//   console.log('second request')
 
-  const id2=await wada // wait here untill executed
-console.log(id2)
-console.log('third request')
-const id=await wadaa;
-console.log(id)
+//   const id2=await wada // wait here untill executed
+// console.log(id2)
+// console.log('third request')
+// const id=await wadaa;
+// console.log(id)
 
-console.log('last')
-}
-main()
+// console.log('last')
+// }
+// main()
 
 
 
@@ -202,3 +202,23 @@ main()
 // })
 
 //   }main()
+
+
+
+
+
+
+
+
+
+let randomValue = { name: "Lydia" }
+randomValue = 23
+console.log(randomValue)
+
+
+let ar;
+const arr=['ram','shyam','sita','gira']
+var arr2 = arr.filter((e)=>{
+    return e!=='ram'
+})
+console.log(arr2)
