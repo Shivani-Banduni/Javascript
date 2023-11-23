@@ -1,0 +1,22 @@
+
+
+.container{
+    /* border: 2px solid black; */
+    width: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+form{
+    width: 50vh;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* .container .mb-3 :first-of-type{
+background-color: green;
+} */
+form  div:first-child {
+    background-color: blue;
+}
